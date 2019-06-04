@@ -1,8 +1,8 @@
 ## Let's check 'LIVE' on our system if there's any issue with ntp
 
-This will check 'live' if and with the include filter of 'ntp':
+This will check 'live' and with the include filter of 'clock':
 
-`citellus.py -l -i ntp`{{execute}}
+`citellus.py -l -i clock`{{execute}}
 
 Oh, we've detected some problems, let's double check manually:
 
