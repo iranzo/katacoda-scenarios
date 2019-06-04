@@ -1,7 +1,27 @@
-This is your first step.
+For this demonstration, we'll be using 'pip' to install Citellus
 
-## Task
+## Prepare pip on the environment
 
-This is an _example_ of creating a scenario and running a **command**
+Enable `pip` on the environment (<https://pip.pypa.io/en/stable/installing/>):
 
-`echo 'Hello World'`{{execute}}
+
+First, download installer:
+
+`curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`{{execute}}
+
+Now, execute installer
+
+`python3 get-pip.py`{{execute}}
+
+## Set locale to UTF-8
+
+To avoid issues, let's set the environment to support UTF-8:
+
+´export LC_ALL=C.UTF-8
+export LANG=C.UTF-8`{{execute}}
+
+## Install citellus
+
+Let's install citellus
+
+`pip install citellus`
