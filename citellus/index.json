@@ -1,15 +1,15 @@
 {
-  "title": "How to use citellus",
-  "description": "Quick intro to citellus",
+  "title": "How to use Citellus",
+  "description": "Quick intro to Citellus",
   "difficulty": "beginner",
   "time": "2 minutes",
   "details": {
     "steps": [{
-      "title": "Install citellus in the environment",
+      "title": "Install Citellus in the environment",
       "text": "step1.md"
     },
     {
-    "title": "Use citellus to detect issues",
+    "title": "Use Citellus to detect issues",
     "text": "step2.md"
     }],
     "intro": {
