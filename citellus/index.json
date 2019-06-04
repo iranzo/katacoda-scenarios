@@ -1,0 +1,26 @@
+{
+  "title": "How to use citellus",
+  "description": "Quick intro to citellus",
+  "difficulty": "beginner",
+  "time": "2 minutes",
+  "details": {
+    "steps": [{
+      "title": "Install citellus in virtual environment",
+      "text": "step1.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\n\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "bash"
+  }
+}
