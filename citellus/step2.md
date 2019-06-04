@@ -2,7 +2,7 @@
 
 This will check 'live' if and with the include filter of 'ntp':
 
-`citellus -l -i ntp`{{execute}}
+`citellus.py -l -i ntp`{{execute}}
 
 Oh, we've detected some problems, let's double check manually:
 

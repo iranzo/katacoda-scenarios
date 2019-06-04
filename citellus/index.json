@@ -5,7 +5,7 @@
   "time": "2 minutes",
   "details": {
     "steps": [{
-      "title": "Install citellus in virtual environment",
+      "title": "Install citellus in the environment",
       "text": "step1.md"
     },
     {
