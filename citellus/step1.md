@@ -24,4 +24,4 @@ export LANG=C.UTF-8`{{execute}}
 
 Let's install citellus
 
-`pip install citellus`
+`pip install citellus`{{execute}}

@@ -7,6 +7,10 @@
     "steps": [{
       "title": "Install citellus in virtual environment",
       "text": "step1.md"
+    },
+    {
+    "title": "Use citellus to detect issues",
+    "text": "step2.md"
     }],
     "intro": {
       "text": "intro.md",
