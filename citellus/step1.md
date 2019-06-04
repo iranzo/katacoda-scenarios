@@ -17,7 +17,7 @@ Now, execute installer
 
 To avoid issues, let's set the environment to support UTF-8:
 
-´export LC_ALL=C.UTF-8
+`export LC_ALL=C.UTF-8
 export LANG=C.UTF-8`{{execute}}
 
 ## Install citellus
