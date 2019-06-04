@@ -38,7 +38,7 @@ Now that a VM is running you can access it's console:
 $ ./virtctl console testvm
 ```
 
-See above NOTE before executing:
+See above **NOTE** before executing:
 
 `./virtctl console testvm`{{execute}}
 

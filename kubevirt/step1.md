@@ -28,7 +28,7 @@ Let's check the deployment:
 
 `virtctl` is a client utility to provide some more convenient ways to interact with the VM:
 
-`https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/virtctl-${KUBEVIRT_VERSION}-linux-amd64`{{execute}}
+`wget -O virtctl https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/virtctl-${KUBEVIRT_VERSION}-linux-amd64`{{execute}}
 
 `chmod +x virtctl`{{execute}}
 
