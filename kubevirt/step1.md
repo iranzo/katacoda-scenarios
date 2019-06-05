@@ -8,10 +8,12 @@ Provide some initial configuration
 
 `kubectl create configmap -n kube-system kubevirt-config --from-literal debug.useEmulation=true`{{execute}}
 
-And finally deploy KubeVirt operator
+And finally deploy KubeVirt operator using latest Kubevirt Version
 
-`export KUBEVIRT_VERSION="v0.15.0"
-kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute}}
+`export KUBEVIRT_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest|jq '.tag_name'|tr -d '"')
+echo $KUBEVIRT_VERSION`{{execute}}
+
+`kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute}}
 
 Now let's deploy kubevirt by creating a custom resource:
 
