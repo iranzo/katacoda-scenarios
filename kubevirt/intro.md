@@ -1,3 +1,1 @@
-
-TBD What is kubevirt
-TBD how does it work briefly
+This scenario demonstrates how kubevirt can be used to start a virtual machine

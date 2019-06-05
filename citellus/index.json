@@ -6,7 +6,8 @@
   "details": {
     "steps": [{
       "title": "Install Citellus in the environment",
-      "text": "step1.md"
+      "text": "step1.md",
+      "code": "set-env.sh"
     },
     {
     "title": "Use Citellus to detect issues",
