@@ -8,8 +8,7 @@
     "steps": [
       {
         "title": "Launch cluster and deploy KubeVirt",
-        "text": "step1.md",
-        "code": "set-env.sh"
+        "text": "step1.md"
       },
       {
         "title": "Create and use your first VM",
@@ -18,7 +17,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "courseData": "courseBase.sh"
+      "code": "set-env.sh"
     },
     "finish": {
       "text": "finish.md"
