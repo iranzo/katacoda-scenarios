@@ -1,3 +1,3 @@
-Well done, you have completed the KubeVirt demo.
+Well done, you have completed the KubeVirt demo!
 
-Check on <https://kubevirt.io> for more information!
+Hope you've enjoyed it, for more information about Kubevirt, please do check <https://kubevirt.io>!

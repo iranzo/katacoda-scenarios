@@ -22,6 +22,20 @@ Now let's deploy kubevirt by creating a custom resource:
 Let's check the deployment:
 `kubectl get pods -n kubevirt`{{execute}}
 
+Once it's ready, it will show something similar to:
+
+~~~
+master $ kubectl get pods -n kubevirt
+NAME                               READY     STATUS    RESTARTS   AGE
+virt-api-7fc57db6dd-g4s4w          1/1       Running   0          3m
+virt-api-7fc57db6dd-zd95q          1/1       Running   0          3m
+virt-controller-6849d45bcc-88zd4   1/1       Running   0          3m
+virt-controller-6849d45bcc-cmfzk   1/1       Running   0          3m
+virt-handler-fvsqw                 1/1       Running   0          3m
+virt-operator-5649f67475-gmphg     1/1       Running   0          4m
+virt-operator-5649f67475-sw78k     1/1       Running   0          4m
+~~~
+
 #### Install Virtctl
 
 `virtctl` is a client utility to provide some more convenient ways to interact with the VM:

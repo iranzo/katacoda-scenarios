@@ -29,6 +29,14 @@ $ kubectl get vmis -o yaml testvm
 
 `kubectl get vmis`{{execute}}
 
+Once it's ready, above comand will print something like:
+
+~~~
+master $ kubectl get vmis
+NAME      AGE       PHASE     IP           NODENAME
+testvm    1m        Running   10.32.0.11   master
+~~~
+
 #### Accessing VMs (serial console & vnc)
 
 Now that a VM is running you can access it's console:
@@ -48,6 +56,8 @@ See above **NOTE** before executing:
 # This obviously does not work on katacoda
 $ ./virtctl vnc testvm
 ```
+
+If you've opened the console, you can click on the "+" close to 'Terminal' to start a new shell there and be able to continue with the following steps.
 
 #### Shutdown and cleanup
 
