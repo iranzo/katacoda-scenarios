@@ -10,7 +10,7 @@ Provide some initial configuration
 
 And finally deploy KubeVirt operator using latest Kubevirt Version
 
-`export KUBEVIRT_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest|jq '.tag_name'|tr -d '"')
+`export KUBEVIRT_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases|grep tag_name|sort -V | tail -1 | awk -F':' '{print $2}' | sed 's/,//' | xargs)
 echo $KUBEVIRT_VERSION`{{execute}}
 
 `kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute}}
