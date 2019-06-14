@@ -8,6 +8,8 @@ Provide some initial configuration
 
 `kubectl create configmap -n kube-system kubevirt-config --from-literal debug.useEmulation=true`{{execute}}
 
+Above commands enables 'emulation' to run the VM's as our demo environment is using 'nested' virtualization.
+
 And finally deploy KubeVirt operator using latest Kubevirt Version
 
 `export KUBEVIRT_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases|grep tag_name|sort -V | tail -1 | awk -F':' '{print $2}' | sed 's/,//' | xargs)
