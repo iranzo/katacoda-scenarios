@@ -6,7 +6,7 @@ Before we can start, we need to wait for the Kubernetes cluster to be ready
 
 Provide some initial configuration
 
-`kubectl create configmap -n kube-system kubevirt-config --from-literal debug.useEmulation=true`{{execute}}
+`kubectl create configmap kubevirt-config -n kubevirt --from-literal debug.useEmulation=true`{{execute}}
 
 Above commands enables 'emulation' to run the VM's as our demo environment is using 'nested' virtualization.
 
