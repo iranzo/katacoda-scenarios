@@ -4,18 +4,18 @@ Before we can start, we need to wait for the Kubernetes cluster to be ready
 
 #### Deploy KubeVirt
 
-Provide some initial configuration
-
-`kubectl create configmap kubevirt-config -n kubevirt --from-literal debug.useEmulation=true`{{execute}}
-
-Above commands enables 'emulation' to run the VM's as our demo environment is using 'nested' virtualization.
-
-And finally deploy KubeVirt operator using latest Kubevirt Version
+Deploy KubeVirt operator using latest Kubevirt Version
 
 `export KUBEVIRT_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases|grep tag_name|sort -V | tail -1 | awk -F':' '{print $2}' | sed 's/,//' | xargs)
 echo $KUBEVIRT_VERSION`{{execute}}
 
 `kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute}}
+
+Provide some initial configuration
+
+`kubectl create configmap kubevirt-config -n kubevirt --from-literal debug.useEmulation=true`{{execute}}
+
+Above commands enables 'emulation' to run the VM's as our demo environment is using 'emulated' virtualization.
 
 Now let's deploy kubevirt by creating a custom resource:
 
