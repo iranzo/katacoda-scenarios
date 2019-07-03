@@ -11,7 +11,11 @@
     {
     "title": "Use Citellus to detect issues",
     "text": "step2.md"
-    }],
+    },
+    {"title": "Solve the issue and revalidate",
+    "text": "step3.md"
+    }
+    ],
     "intro": {
       "text": "intro.md",
       "credits": "",
