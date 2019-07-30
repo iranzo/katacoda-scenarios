@@ -2,4 +2,10 @@
         "course": "kubevirt",
         "targetCourse": "kubevirt",
         "targetUsername": "kubevirt"
-    }]
+    },
+    {
+        "course": "citellus",
+        "targetCourse": "citellus",
+        "targetUsername": "citellus"
+    }
+]
