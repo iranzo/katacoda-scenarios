@@ -1,11 +1,11 @@
 [{
-        "course": "kubevirt",
-        "targetCourse": "kubevirt",
+        "scenario": "kubevirt",
+        "targetScenario": "kubevirt",
         "targetUsername": "kubevirt"
     },
     {
-        "course": "citellus",
-        "targetCourse": "citellus",
+        "scenario": "citellus",
+        "targetScenario": "citellus",
         "targetUsername": "citellus"
     }
 ]
