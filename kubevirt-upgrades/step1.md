@@ -8,11 +8,9 @@ Please ensure you're familiar with KubeVirt basics in [First steps with KubeVirt
 
 Deploy the KubeVirt operator using a specific KubeVirt version, so that we can later proceed to upgrade to latest.
 
-We query GitHub's API to get the latest available release (click on the text to autoexecute the commands on the console) and then, we force to use release `v0.17.0`:
+Let's force ourselves to use release `v0.17.0`:
 
-`export KUBEVIRT_LATEST_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest | jq -r .tag_name)
-echo $KUBEVIRT_LATEST_VERSION
-export KUBEVIRT_VERSION=v0.17.0`{{execute}}
+`export KUBEVIRT_VERSION=v0.17.0`{{execute}}
 
 Run the following command to deploy the KubeVirt Operator:
 
