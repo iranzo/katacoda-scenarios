@@ -7,13 +7,13 @@ KubeVirt starting from `v0.17.0` onwards, allows to upgrade by using two approac
 
 **WARNING:** In both cases, the supported scenario is updating from N-1 to N
 
-Zero downtime rolling updates are supported starting with release `v0.17.0` onwards. Updating from any release prior to the KubeVirt v0.17.0 release is not supported.
+**NOTE:** Zero downtime rolling updates are supported starting with release `v0.17.0` onwards. Updating from any release prior to the KubeVirt `v0.17.0` release is not supported.
 
 #### Performing the upgrade
 
 ##### Method 1: by changing the imageTag value in the KubeVirt CR’s spec
 
-For example, updating from v0.17.0 to v0.18.0 is as simple as patching the KubeVirt CR with the imageTag: v0.18.0 value. From there the KubeVirt operator will begin the process of rolling out the new version of KubeVirt. Existing VM/VMIs will remain uninterrupted both during and after the update succeeds.
+For example, updating from `v0.17.0` to `v0.18.0` is as simple as patching the KubeVirt CR with the `imageTag: v0.18.0` value. From there the KubeVirt operator will begin the process of rolling out the new version of KubeVirt. Existing VM/VMIs will remain uninterrupted both during and after the update succeeds.
 
 `kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "v0.18.0" }]`{{execute HOST2}}
 
@@ -21,7 +21,9 @@ Keep watching the output on terminal 1 on how the containers are stopped/started
 
 ##### Method 2: by updating the KubeVirt operator if no imageTag value is set
 
-When no imageTag value is set in the KubeVirt CR, the system assumes that the version of KubeVirt is locked to the version of the operator. This means that updating the operator will result in the underlying KubeVirt installation being updated as well.
+When no `imageTag` value is set in the KubeVirt CR, the system assumes that the version of KubeVirt is locked to the version of the operator. This means that updating the operator will result in the underlying KubeVirt installation being updated as well.
+
+Let's upgrade to one newer version since the one in Method 1:
 
 `export RELEASE=v0.19.0
 kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute HOST2}}
