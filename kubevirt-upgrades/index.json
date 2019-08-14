@@ -24,7 +24,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal",
+    "uilayout": "terminal",
     "showdashboard": true,
     "terminals": [
       {"name": "Terminal 2", "target": "host01"}
