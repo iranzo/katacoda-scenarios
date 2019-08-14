@@ -43,16 +43,6 @@ virt-operator-5649f67475-gmphg     1/1       Running   0          4m
 virt-operator-5649f67475-sw78k     1/1       Running   0          4m
 ~~~
 
-#### Install Virtctl
-
-`virtctl` is a client utility that helps interact with VM's (start/stop/console, etc):
-
-`wget -O virtctl https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_LATEST_VERSION}/virtctl-${KUBEVIRT_LATEST_VERSION}-linux-amd64`{{execute HOST2}}
-
-`chmod +x virtctl`{{execute HOST2}}
-
-Now everything is ready to continue and launch a VM and start it
-
 #### Deploy a VM
 
 The command below applies a YAML definition of a virtual machine into our current Kubernetes environment:
