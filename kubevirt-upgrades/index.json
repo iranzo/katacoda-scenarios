@@ -11,12 +11,8 @@
         "text": "step1.md"
       },
       {
-        "title": "Create and use your first VM",
-        "text": "step2.md"
-      },
-      {
         "title": "Perform KubeVirt Upgrade",
-        "text": "step3.md"
+        "text": "step2.md"
       }
     ],
     "intro": {
