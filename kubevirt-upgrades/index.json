@@ -26,7 +26,8 @@
   "environment": {
     "uilayout": "terminal-terminal",
     "showdashboard": true,
-    "dashboards": [{"name": "Tab Name", "port": 80}, {"name": "Tab Name", "port": 8080}]
+    "dashboards": [{"name": "Tab Name", "port": 80}, {"name": "Tab Name", "port": 8080}],
+    "icon": "fa-kubernetes"
   },
   "backend": {
     "imageid": "kubernetes"
