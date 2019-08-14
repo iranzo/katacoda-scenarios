@@ -25,7 +25,7 @@ When no `imageTag` value is set in the KubeVirt CR, the system assumes that the 
 
 Let's upgrade to one newer version since the one in Method 1:
 
-`export RELEASE=v0.19.0
+`export KUBEVIRT_VERSION=v0.19.0
 kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute HOST2}}
 
 **NOTE:** Compared to the first step of the scenario we now use **apply** instead of **create** to deploy the newer version.
