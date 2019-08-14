@@ -7,50 +7,40 @@ KubeVirt starting from `v0.17.0` onwards, allows to upgrade by using two approac
 
 **WARNING:** In both cases, the supported scenario is updating from N-1 to N
 
-##### Updating via patching
+Zero downtime rolling updates are supported starting with release `v0.17.0` onwards. Updating from any release prior to the KubeVirt v0.17.0 release is not supported.
 
+#### Performing the upgrade
 
-The command below applies a YAML definition of a virtual machine into our current Kubernetes environment, defining the VM name, the resources required (disk, CPU, memory), etc. You can take a look at the [vm.yaml](https://raw.githubusercontent.com/kubevirt/demo/master/manifests/vm.yaml) file if you have interest in knowing more about a virtual machine definition:
+##### Method 1: by changing the imageTag value in the KubeVirt CR’s spec
 
-`kubectl apply -f https://raw.githubusercontent.com/kubevirt/demo/master/manifests/vm.yaml`{{execute}}
+For example, updating from v0.17.0 to v0.18.0 is as simple as patching the KubeVirt CR with the imageTag: v0.18.0 value. From there the KubeVirt operator will begin the process of rolling out the new version of KubeVirt. Existing VM/VMIs will remain uninterrupted both during and after the update succeeds.
 
-We are creating a Virtual Machine in the same way as we would create any other Kubernetes resource thanks to what KubeVirt has enabled in our environment. Now we have a Virtual Machine as a Kubernetes resource.
+`kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "v0.18.0" }]`{{execute HOST2}}
 
-After the vm resource has been created, you can manage the VMs with standard 'kubectl' commands:
+Keep watching the output on terminal 1 on how the containers are stopped/started as the deployment happens.
 
-```
-$ kubectl get vms
-$ kubectl get vms -o yaml testvm
-```
+##### Method 2: by updating the KubeVirt operator if no imageTag value is set
 
-Check that the VM is defined (using commands above):
+When no imageTag value is set in the KubeVirt CR, the system assumes that the version of KubeVirt is locked to the version of the operator. This means that updating the operator will result in the underlying KubeVirt installation being updated as well.
 
-`kubectl get vms`{{execute}}
+`export RELEASE=v0.19.0
+kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute HOST2}}
 
-Notice from the output that the VM is not running yet.
+**NOTE:** Compared to the first step of the scenario we now use **apply** instead of **create** to deploy the newer version.
 
-To start a VM, `virtctl` should be used:
+##### Method comparison
 
-`./virtctl start testvm`{{execute}}
+The first way provides a fine granular approach where you have full control over what version of KubeVirt is installed independently of what version of the KubeVirt operator you might be running. 
 
-Alternatively you can use `kubectl edit vm testvm` to set `.spec.running: true`.
+The second approach allows you to lock both the operator and operand to the same version.
 
-Now you can check again the VM status:
+Newer KubeVirt may require additional or extended RBAC rules. In this case, the 1st update method may fail, because the `virt-operator` present in the cluster doesn’t have these RBAC rules itself. 
 
-`kubectl get vms`{{execute}}
+In this case, you need to update the virt-operator first, and then proceed to update kubevirt.
 
-A `VirtualMachine` resource contains a VM's definition and status. An [instance](https://kubevirt.io/user-guide/docs/latest/creating-virtual-machines/intro.html) of a running VM has an additional associated resource, a `VirtualMachineInstance`.
+In all cases, we can check that the VM is still running
 
-Once the VM is running you can inspect its status:
-
-```
-$ kubectl get vmis
-$ kubectl get vmis -o yaml testvm
-```
-
-`kubectl get vmis`{{execute}}
-
-Once it's ready, the command above will print something like:
+`kubectl get vmis`{{execute HOST2}}
 
 ~~~
 master $ kubectl get vmis
@@ -58,24 +48,15 @@ NAME      AGE       PHASE     IP           NODENAME
 testvm    1m        Running   10.32.0.11   master
 ~~~
 
-#### Accessing VMs (serial console & vnc)
 
-Now that a VM is running you can access its serial console:
+#### Wrap-up
 
-**WARNING:** in some browser environments you will not be able to escape the serial console on Katacoda.
+You can keep testing in this scenario updating 'one version at a time' until reaching the value of `KUBEVIRT_LATEST_VERSION` we defined at the beginning of this scenario.
 
-**NOTE:** `^]` means: press the "CTRL" and "]" keys to escape the console.
+`echo "CURRENT: $KUBEVIRT_VERSION"
+echo "LATEST: $KUBEVIRT_LATEST_VERSION"`{{execute}}
 
-~~~sh
-# Connect to the serial console
-$ ./virtctl console testvm
-~~~
-
-If you opened the serial console within Katacoda and you can't escape from it by pressing `^]`, you can click on the `+` close to 'Terminal' to start a new shell there and be able to continue with the following steps in the shutdown and cleanup section.
-
-In environments where VNC client access is available, the graphical console of a VM can be accessed with the [virtctl vnc](https://kubevirt.io/user-guide/docs/latest/using-virtual-machines/graphical-and-console-access.html) command.
-
-#### Shutdown and cleanup
+Compare the values betwee
 
 Shutting down a VM works by either using `virtctl` or editing the VM.
 
