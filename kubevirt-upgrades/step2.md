@@ -15,7 +15,7 @@ KubeVirt starting from `v0.17.0` onwards, allows to upgrade by using two approac
 
 For example, updating from `v0.17.0` to `v0.18.0` is as simple as patching the KubeVirt CR with the `imageTag: v0.18.0` value. From there the KubeVirt operator will begin the process of rolling out the new version of KubeVirt. Existing VM/VMIs will remain uninterrupted both during and after the update succeeds.
 
-`kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "v0.18.0" }]`{{execute HOST2}}
+`kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "v0.18.0" }]`{{execute T2}}
 
 Keep watching the output on terminal 1 on how the containers are stopped/started as the deployment happens.
 
@@ -26,7 +26,7 @@ When no `imageTag` value is set in the KubeVirt CR, the system assumes that the 
 Let's upgrade to one newer version since the one in Method 1:
 
 `export KUBEVIRT_VERSION=v0.19.0
-kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute HOST2}}
+kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute T2}}
 
 **NOTE:** Compared to the first step of the scenario we now use **apply** instead of **create** to deploy the newer version.
 
@@ -42,7 +42,7 @@ In this case, you need to update the virt-operator first, and then proceed to up
 
 In all cases, we can check that the VM is still running
 
-`kubectl get vmis`{{execute HOST2}}
+`kubectl get vmis`{{execute T2}}
 
 ~~~
 master $ kubectl get vmis
