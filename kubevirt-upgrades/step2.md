@@ -19,7 +19,7 @@ For example, updating from `v0.17.0` to `v0.18.0` is as simple as patching the K
 
 Keep watching the output on terminal 1 on how the containers are stopped/started as the deployment happens.
 
-Now, let's revert back to no indicate version so that we coan proceed with next step:
+Now, let's revert back to no indicate version so that we an proceed with next step:
 
 `kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "" }]'`{{execute}}
 
