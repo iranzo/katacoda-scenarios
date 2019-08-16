@@ -18,7 +18,7 @@ tmux -2 new-session -d -s $SESSION
 tmux new-window -t $SESSION:1 -n 'Pods'
 tmux split-window -v
 tmux select-pane -t 0
-tmux send-keys "watch -n 0,5 'kubectl -n kubevirt get pods'" C-m
+tmux send-keys "watch -n 0.5 'kubectl -n kubevirt get pods'" C-m
 tmux select-pane -t 1
 
 # Set default window
