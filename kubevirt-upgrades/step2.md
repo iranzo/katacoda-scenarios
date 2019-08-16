@@ -15,7 +15,7 @@ KubeVirt starting from `v0.17.0` onwards, allows to upgrade by using two approac
 
 For example, updating from `v0.17.0` to `v0.18.0` is as simple as patching the KubeVirt CR with the `imageTag: v0.18.0` value. From there the KubeVirt operator will begin the process of rolling out the new version of KubeVirt. Existing VM/VMIs will remain uninterrupted both during and after the update succeeds.
 
-`kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "v0.18.0" }]`{{execute}}
+`kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "v0.18.0" }]'`{{execute}}
 
 Keep watching the output on terminal 1 on how the containers are stopped/started as the deployment happens.
 
@@ -36,7 +36,7 @@ The first way provides a fine granular approach where you have full control over
 
 The second approach allows you to lock both the operator and operand to the same version.
 
-Newer KubeVirt may require additional or extended RBAC rules. In this case, the 1st update method may fail, because the `virt-operator` present in the cluster doesn’t have these RBAC rules itself. 
+Newer KubeVirt may require additional or extended RBAC rules. In this case, the 1st update method may fail, because the `virt-operator` present in the cluster doesn’t have these RBAC rules itself.
 
 In this case, you need to update the virt-operator first, and then proceed to update kubevirt.
 
@@ -51,7 +51,7 @@ testvm    1m        Running   10.32.0.11   master
 ~~~
 
 
-#### Wrap-up
+#### Final upgrades
 
 You can keep testing in this scenario updating 'one version at a time' until reaching the value of `KUBEVIRT_LATEST_VERSION`:
 
@@ -59,7 +59,15 @@ You can keep testing in this scenario updating 'one version at a time' until rea
 echo "CURRENT: $KUBEVIRT_VERSION"
 echo "LATEST: $KUBEVIRT_LATEST_VERSION"`{{execute}}
 
-Compare the values betwee
+Compare the values between and continue upgrading 'one release at a time' by:
+
+Chosing target version:
+`export KUBEVIRT_VERSION=v0.19.0`{{execute}}
+
+Updating operator to that release:
+`kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute}}
+
+####  Wrap-up
 
 Shutting down a VM works by either using `virtctl` or editing the VM.
 
@@ -68,3 +76,5 @@ Shutting down a VM works by either using `virtctl` or editing the VM.
 Finally, the VM can be deleted using:
 
 `kubectl delete vms testvm`{{execute}}
+
+**NOTE:** We've seen two methos for upgrading, based on the future requirements it's better if we follow the `Operator` approach as it will take into consideration new requirements.

@@ -63,7 +63,7 @@ Now you can check again the VM status:
 
 Once the VM is running you can inspect its status:
 
-`kubectl get vmis T2`{{execute}}
+`kubectl get vmis`{{execute}}
 
 Once it's ready, the command above will print something like:
 
