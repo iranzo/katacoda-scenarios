@@ -19,6 +19,10 @@ For example, updating from `v0.17.0` to `v0.18.0` is as simple as patching the K
 
 Keep watching the output on terminal 1 on how the containers are stopped/started as the deployment happens.
 
+Now, let's revert back to no indicate version so that we coan proceed with next step:
+
+`kubectl patch kv kubevirt -n kubevirt --type=json -p '[{ "op": "add", "path": "/spec/imageTag", "value": "" }]'`{{execute}}
+
 ##### Method 2: by updating the KubeVirt operator if no imageTag value is set
 
 When no `imageTag` value is set in the KubeVirt CR, the system assumes that the version of KubeVirt is locked to the version of the operator. This means that updating the operator will result in the underlying KubeVirt installation being updated as well.
