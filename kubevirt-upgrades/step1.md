@@ -25,7 +25,7 @@ Now let's deploy KubeVirt by creating a Custom Resource that will trigger the 'o
 `kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-cr.yaml`{{execute}}
 
 Let's check the deployment:
-`watch 'kubectl get pods -n kubevirt'`{{execute HOST1}}
+`watch 'kubectl get pods -n kubevirt'`{{execute T1}}
 
 Once it's ready, it will show something similar to:
 
@@ -59,11 +59,11 @@ To start a VM, `virtctl` should be used:
 
 Now you can check again the VM status:
 
-`kubectl get vms T2`{{execute}}
+`kubectl get vms`{{execute T2}}
 
 Once the VM is running you can inspect its status:
 
-`kubectl get vmis T2`{{execute}}
+`kubectl get vmis T2`{{execute T2}}
 
 Once it's ready, the command above will print something like:
 

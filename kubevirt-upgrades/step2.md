@@ -57,14 +57,14 @@ You can keep testing in this scenario updating 'one version at a time' until rea
 
 `export KUBEVIRT_LATEST_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest | jq -r .tag_name)
 echo "CURRENT: $KUBEVIRT_VERSION"
-echo "LATEST: $KUBEVIRT_LATEST_VERSION"`{{execute}}
+echo "LATEST: $KUBEVIRT_LATEST_VERSION"`{{execute T2}}
 
 Compare the values betwee
 
 Shutting down a VM works by either using `virtctl` or editing the VM.
 
-`./virtctl stop testvm`{{execute}}
+`./virtctl stop testvm`{{execute T2}}
 
 Finally, the VM can be deleted using:
 
-`kubectl delete vms testvm`{{execute}}
+`kubectl delete vms testvm`{{execute T2}}
