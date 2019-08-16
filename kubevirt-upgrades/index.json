@@ -26,9 +26,6 @@
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "terminals": [
-      {"name": "Terminal 2", "target": "host01"}
-    ],
     "icon": "fa-kubernetes"
   },
   "backend": {
