@@ -1,3 +1,6 @@
+# Disable showing commands as being typed
+stty -echo
+
 launch.sh > /dev/null 2>&1
 
 # Get lateste KubeVirt virtctl
@@ -11,6 +14,9 @@ clear
 echo "Environment is ready and virtctl is installed, go ahead"
 
 SESSION=$USER
+
+# Enable back showing commands when typed
+stty echo
 
 tmux -2 new-session -d -s $SESSION
 
