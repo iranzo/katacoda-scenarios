@@ -1,11 +1,13 @@
 # Disable showing commands as being typed
 stty -echo
 
+echo "Preparking Kubernetes environment... hold on"
 launch.sh > /dev/null 2>&1
 
 # Get lateste KubeVirt virtctl
 export KUBEVIRT_LATEST_VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases/latest | jq -r .tag_name) > /dev/null 2>&1
 
+echo "Downloading latest virtctl command... hold on"
 # Download virctl
 wget -O virtctl https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_LATEST_VERSION}/virtctl-${KUBEVIRT_LATEST_VERSION}-linux-amd64 > /dev/null 2>&1
 chmod +x virtctl
