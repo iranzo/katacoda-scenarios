@@ -1,5 +1,6 @@
 # Disable showing commands as being typed
 stty -echo
+clear
 
 echo "Preparking Kubernetes environment... hold on"
 launch.sh > /dev/null 2>&1
@@ -16,9 +17,6 @@ clear
 echo "Environment is ready and virtctl is installed, go ahead"
 
 SESSION=$USER
-
-# Enable back showing commands when typed
-stty echo
 
 tmux -2 new-session -d -s $SESSION
 
@@ -38,4 +36,6 @@ tmux -2 attach-session -t $SESSION
 # Write 'environment ready'
 stty -echo
 echo "Environment ready to perform the lab"
+
+# Enable back showing commands when typed
 stty echo
