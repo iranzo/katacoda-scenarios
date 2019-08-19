@@ -82,3 +82,5 @@ Finally, the VM can be deleted using:
 `kubectl delete vms testvm`{{execute}}
 
 **NOTE:** We've seen two methos for upgrading, based on the future requirements it's better if we follow the `Operator` approach as it will take into consideration new requirements.
+
+When updating using the operator, we can see that the 'AGE' of containers is similar between them, but when updating only the kubevirt version, the operator 'AGE' keeps increasing as it is not 'recreated'.
