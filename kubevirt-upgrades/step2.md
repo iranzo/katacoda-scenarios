@@ -66,7 +66,7 @@ echo "LATEST: $KUBEVIRT_LATEST_VERSION"`{{execute}}
 Compare the values between and continue upgrading 'one release at a time' by:
 
 Chosing target version:
-`export KUBEVIRT_VERSION=v0.19.0`{{execute}}
+`export KUBEVIRT_VERSION=vX.XX.X`{{execute}}
 
 Updating operator to that release:
 `kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/${KUBEVIRT_VERSION}/kubevirt-operator.yaml`{{execute}}
