@@ -32,6 +32,7 @@ tmux split-window -v
 tmux select-pane -t 0
 tmux send-keys "watch -n 0.5 'kubectl -n kubevirt get pods'" C-m
 tmux select-pane -t 1
+tmux send-keys "clear" C-m
 
 # Set default window
 tmux select-window -t $SESSION:1
