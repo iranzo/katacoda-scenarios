@@ -1,9 +1,9 @@
 # Disable showing commands as being typed
 stty -echo
-clear
 
 export PSBACKUP="$PS1"
 export PS1=""
+clear
 
 echo -e "\nPreparking Kubernetes environment... hold on"
 launch.sh > /dev/null 2>&1
