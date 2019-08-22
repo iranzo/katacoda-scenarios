@@ -21,6 +21,9 @@ echo -e  "\nEnvironment is ready and virtctl is installed, go ahead"
 
 SESSION=$USER
 
+# Restore prompt
+export PS1="$PSBACKUP"
+
 tmux -2 new-session -d -s $SESSION
 
 # Setup a window for tailing log files
@@ -33,14 +36,8 @@ tmux select-pane -t 1
 # Set default window
 tmux select-window -t $SESSION:1
 
-# Attach to session
-tmux -2 attach-session -t $SESSION
-
-export PS1="$PSBACKUP"
-clear
-# Write 'environment ready'
-stty -echo
-echo "Environment ready to proceed with the lab"
-
 # Enable back showing commands when typed
 stty echo
+
+# Attach to session
+tmux -2 attach-session -t $SESSION
