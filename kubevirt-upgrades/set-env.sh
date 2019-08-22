@@ -2,6 +2,9 @@
 stty -echo
 clear
 
+export PSBACKUP="$PS1"
+export PS1=""
+
 echo -e "\nPreparking Kubernetes environment... hold on"
 launch.sh > /dev/null 2>&1
 
@@ -33,6 +36,7 @@ tmux select-window -t $SESSION:1
 # Attach to session
 tmux -2 attach-session -t $SESSION
 
+export PS1="$PSBACKUP"
 clear
 # Write 'environment ready'
 stty -echo
