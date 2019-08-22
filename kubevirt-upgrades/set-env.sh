@@ -33,6 +33,7 @@ tmux select-window -t $SESSION:1
 # Attach to session
 tmux -2 attach-session -t $SESSION
 
+clear
 # Write 'environment ready'
 stty -echo
 echo "Environment ready to proceed with the lab"
