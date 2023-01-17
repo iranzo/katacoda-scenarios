@@ -1,10 +1,10 @@
-# Interactive Katacoda Scenarios
+# Interactive killercoda Scenarios
 
-[![](http://shields.katacoda.com/katacoda/iranzo/count.svg)](https://www.katacoda.com/iranzo "Get your profile on Katacoda.com")
+[![](http://shields.killercoda.com/killercoda/iranzo/count.svg)](https://www.killercoda.com/iranzo "Get your profile on killercoda.com")
 
-Visit https://www.katacoda.com/iranzo to view the profile and interactive scenarios
+Visit https://www.killercoda.com/iranzo to view the profile and interactive scenarios
 
 ### Writing Scenarios
-Visit https://www.katacoda.com/docs to learn more about creating Katacoda scenarios
+Visit https://www.killercoda.com/docs to learn more about creating killercoda scenarios
 
-For examples, visit https://github.com/katacoda/scenario-example
+For examples, visit https://github.com/killercoda/scenario-example
